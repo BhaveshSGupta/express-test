@@ -8,7 +8,7 @@ const app = express()
 
 
 //init MiddleWare
-app.use(logger)
+//app.use(logger)
 
 // This route gets all members
 app.get('/api/members', (req, res) =>  res.json(members))
