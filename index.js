@@ -10,6 +10,11 @@ const app = express()
 //init MiddleWare
 //app.use(logger)
 
+// This route to get individual member
+app.get('/api/members/:id', (req, res) => {
+    res.json(members.filter(member  => member.id === parseInt(req.params.id)))
+})
+
 // This route gets all members
 app.get('/api/members', (req, res) =>  res.json(members))
 
