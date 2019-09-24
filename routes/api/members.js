@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const members = require('../../Members')
+let members = require('../../Members')
 const uuid = require('uuid')
 
 // This route to get individual member
@@ -48,6 +48,20 @@ router.put('/:id', (req, res) => {
                 res.json({ msg: 'Member updated', member})
             }
         })
+    }
+    else{
+     res.status(400).json({msg:`No Member with id of ${req.params.id} found`})   
+    }
+
+})
+
+
+// This route to Delete individual member
+router.delete('/:id', (req, res) => {
+    const found = members.some(member => member.id === parseInt(req.params.id))
+    if(found){
+        members = members.filter(member  => member.id !== parseInt(req.params.id))
+        res.json({ msg:'Member Deleted', members: members})
     }
     else{
      res.status(400).json({msg:`No Member with id of ${req.params.id} found`})   
