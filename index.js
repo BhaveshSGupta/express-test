@@ -11,7 +11,7 @@ const app = express()
 //using static folder
 app.use(express.static(path.join(__dirname, 'public')))
 
-// Memeber api route
+// Member api routes
 app.use('/api/members', require('./routes/api/members'))
 
 const PORT = process.env.PORT || 3000
