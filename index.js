@@ -8,11 +8,18 @@ const app = express()
 //init MiddleWare
 //app.use(logger)
 
+//Body parser middleware
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+
+
 //using static folder
 app.use(express.static(path.join(__dirname, 'public')))
 
 // Member api routes
 app.use('/api/members', require('./routes/api/members'))
+
+
 
 const PORT = process.env.PORT || 3000
 

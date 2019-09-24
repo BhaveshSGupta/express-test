@@ -16,4 +16,11 @@ router.get('/:id', (req, res) => {
 // This route gets all members
 router.get('/', (req, res) =>  res.json(members))
 
+
+// Create a member
+router.post('/', (req, res) => {
+    res.send(req.body)
+})
+
+
 module.exports = router 
